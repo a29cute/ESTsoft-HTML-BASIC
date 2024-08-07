@@ -1,0 +1,20 @@
+div {
+    background-color: #dddddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+span {
+    color: red;
+}
+
+.character {
+    color: red;
+    font-weight: bold;
+}
+
+.company {
+    color: blue;
+    text-decoration: underline;
+}
