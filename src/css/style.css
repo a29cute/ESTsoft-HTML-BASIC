@@ -1,0 +1,53 @@
+/* 전체 페이지 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* 컨테이너 스타일 */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 제목 스타일 */
+h1 {
+    color: #ff8989;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* 내용 영역 스타일 */
+.content {
+    margin-top: 20px;
+}
+
+/* 테이블 스타일 */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+.th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+.content th {
+    color: #ff8989;
+    font-weight: bold;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
