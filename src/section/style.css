@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+nav {
+    margin: 0;
+    padding: 5px;
+    background-color: #dddddd;
+}
+ul {
+    list-style: none;
+    display: flex;
+}
+li {
+    margin-right: 10px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
