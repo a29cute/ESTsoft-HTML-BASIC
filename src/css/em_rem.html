@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 8px;
+        }
+
+        .container {
+            font-size: 10px;
+            color: greenyellow;
+        }
+
+        .container div {
+            border: 1px solid black;
+        }
+
+        /* 부모요소의 폰트사이즈: 10px
+        10px * 2 = 20px */
+        .item1 {
+            font-size: 2em;
+        }
+
+        /* root html의 폰트사이즈: 8px
+        8px * 2 = 16px */
+        .item2 {
+            font-size: 2rem;
+        }
+
+        /* 유지보수성을 위해 em, rem 단위를 적절하게 사용하는 것이 중요!
+        아래처럼 작업했다면 해당 코드를 다 찾아가서 직접 수정해야함 */
+        /* p {
+            font-size: 12px;
+        }
+
+        div {
+            font-size: 16px;
+        }
+
+        span {
+            font-size: 7px;
+        } */
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sint reiciendis dolorum obcaecati ipsam voluptates incidunt minus numquam repudiandae laborum quam blanditiis possimus,
+        consequuntur, odit minima. Eaque voluptate magnam fuga!
+    </div>
+    <div class="item2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet officia, quam asperiores natus molestiae atque repellendus? Tenetur hic repudiandae magnam eaque laborum laudantium
+        ullam, nihil asperiores impedit aliquid, ducimus blanditiis.
+    </div>
+</div>
+</body>
+</html>
