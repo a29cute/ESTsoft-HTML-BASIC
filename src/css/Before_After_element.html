@@ -14,11 +14,36 @@
     p::after {
       content: "☺️☺️☺️";
     }
+
+    /* img, br, input 태그는 빈태그이므로 가상 요소를 적용시킬 수 없습니다 */
+    img::after {
+      content: "☺️☺️☺️";
+    }
+
+    br::after {
+      content: "☺️☺️☺️";
+    }
+
+    input::after {
+      content: "☺️☺️☺️";
+    }
+
+    /* placeholder에 대한 스타일링 */
+    input::placeholder {
+      color: blue;
+    }
   </style>
 </head>
 <body>
 <p>
   <strong>안녕하세요</strong>
 </p>
+
+<img
+        src="https://i.namu.wiki/i/-DmF6nsvuXN4PQFKHkYyTRRrmWZsNZ6l-XkrkHXjCiwQHJO3vXbsEmnCdsZPePkgLIRBqn0j9KBNkqHG-IBg7hzMpfdgOJfVMeFZqOOlgjXDfBdRFQpIwJbeGZn16nkEh-pGjqZu12k86ncnMpV2nA.webp"
+        alt=""
+/>
+<br />
+<input type="text" placeholder="비밀번호를 작성해주세요." />
 </body>
 </html>
