@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Nanum Pen Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        p {
+            width: 300px;
+            border: solid 1px black;
+            text-align: left;
+            text-align: right;
+            text-align: center;
+            text-align: justify;
+            /* 대부분의 브라우저에서 호환되지 않는다. */
+            text-align: justify-all;
+
+            /* 행간 설정 */
+            line-height: 2;
+
+            /* 자간 설정 */
+            letter-spacing: 5px;
+        }
+
+        span {
+            font-size: 50px;
+            border: 1px solid black;
+            line-height: 100px;
+        }
+
+        .sub {
+            vertical-align: sub;
+        }
+
+        .super {
+            vertical-align: super;
+        }
+        .baseline {
+            vertical-align: baseline;
+        }
+
+        .top {
+            vertical-align: top;
+        }
+        .middle {
+            vertical-align: middle;
+        }
+
+        .bottom {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+<p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea quos recusandae est architecto ex adipisci earum eaque asperiores iusto molestiae quasi sunt repellat esse modi id eveniet,
+    quaerat debitis voluptatibus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea quos recusandae est architecto ex adipisci earum eaque asperiores iusto molestiae quasi sunt
+    repellat esse modi id eveniet, quaerat debitis voluptatibus.
+</p>
+
+<span>부모 <span class="baseline">baseline</span></span
+><br />
+<span>부모 <span class="sub">sub</span></span
+><br />
+<span>부모 <span class="super">super</span></span
+><br />
+<span>부모 <span class="top">top</span></span
+><br />
+<span>부모 <span class="middle">middle</span></span
+><br />
+<span>부모 <span class="bottom">bottom</span></span>
+</body>
+</html>
