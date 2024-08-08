@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* .small-text 클래스를 가진 요소의 폰트 크기를 기본의 50%로 설정 */
+        .small-text {
+            font-size: 0.5em;
+        }
+
+        /* .container 클래스: 자식 요소를 flexbox로 가로로 배치하고, 가운데 정렬하며, 요소 사이의 간격을 설정 */
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* .box 클래스: 크기와 중앙 정렬, 기본 텍스트 색상과 폰트 크기 설정 */
+        .box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 18px;
+        }
+
+        /* 짝수 번째 .box 요소의 글자 색상을 하얀색으로 설정 */
+        .box:nth-child(even) {
+            color: white;
+        }
+
+        /* 첫 번째 .box 요소의 테두리를 검정색으로 설정 */
+        .box:first-child {
+            border: 10px solid black;
+        }
+
+        /* 마지막 .box 요소의 테두리를 검정색으로 설정 */
+        .box:last-child {
+            border: 10px solid black;
+        }
+
+        /* .red 클래스: 배경 색상을 빨강으로 설정 */
+        .red {
+            background-color: red;
+        }
+
+        /* .orange 클래스: 배경 색상을 주황으로 설정 */
+        .orange {
+            background-color: orange;
+        }
+
+        /* .yellow 클래스: 배경 색상을 노랑으로 설정 */
+        .yellow {
+            background-color: yellow;
+        }
+
+        /* .green 클래스: 배경 색상을 초록으로 설정 */
+        .green {
+            background-color: green;
+        }
+
+        /* .blue 클래스: 배경 색상을 파랑으로 설정 */
+        .blue {
+            background-color: blue;
+        }
+
+        /* .darkblue 클래스: 배경 색상을 다크블루로 설정 */
+        .darkblue {
+            background-color: darkblue;
+        }
+
+        /* .purple 클래스: 배경 색상을 보라색으로 설정 */
+        .purple {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<!-- .container 클래스를 가진 div 요소 내에 .box 클래스를 가진 여러 개의 자식 div 요소를 배치 -->
+<div class="container">
+    <div class="box red">빨강</div>
+    <div class="box orange">주황</div>
+    <div class="box yellow">노랑</div>
+    <div class="box green">초록</div>
+    <div class="box blue">파랑</div>
+    <div class="box darkblue">남색</div>
+    <div class="box purple">보라</div>
+</div>
+
+<!-- 리스트 항목에 이모지와 함께 "강사님" 텍스트를 포함한 ul 요소 -->
+<ul>
+    <li>🦊지지 <span class="small-text">강사님</span></li>
+    <li>💙로지 <span class="small-text">강사님</span></li>
+    <li>💙라이캣 <span class="small-text">강사님</span></li>
+    <li>💙개리 <span class="small-text">강사님</span></li>
+</ul>
+</body>
+</html>
