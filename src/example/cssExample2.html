@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Flexbox Shapes</title>
+    <style>
+        /* 전체 컨테이너 스타일 설정 */
+        .container {
+            position: relative; /* 이미지 위에 도형들을 배치하기 위해 relative 위치 지정 */
+            width: 550px; /* 컨테이너 너비 설정 */
+            height: 500px; /* 컨테이너 높이 설정 */
+        }
+
+        /* 배경 이미지 스타일 설정 */
+        .background-image {
+            width: 100%; /* 이미지가 컨테이너의 전체 너비를 차지하도록 설정 */
+            height: 100%; /* 이미지가 컨테이너의 전체 높이를 차지하도록 설정 */
+            object-fit: cover; /* 이미지의 비율을 유지하면서 컨테이너에 맞게 조절 */
+        }
+
+        /* 도형 컨테이너 스타일 설정 */
+        .shapes-container {
+            position: absolute; /* 도형들을 이미지 위에 위치시키기 위해 absolute 위치 지정 */
+            bottom: 0; /* 컨테이너의 하단에 위치하도록 설정 */
+            left: 0; /* 컨테이너의 왼쪽에 위치하도록 설정 */
+            width: 100%; /* 도형 컨테이너가 이미지의 전체 너비를 차지하도록 설정 */
+            height: 80px; /* 도형 컨테이너의 높이를 설정 (조절 가능) */
+            display: flex; /* 도형들을 Flexbox로 배치 */
+            justify-content: center; /* 도형들을 수평으로 가운데 정렬 */
+            align-items: center; /* 도형들을 수직으로 가운데 정렬 */
+            pointer-events: none; /* 도형들이 클릭 이벤트를 방지하도록 설정 (선택 사항) */
+        }
+
+        /* 도형 기본 스타일 설정 */
+        .shape {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 25px;
+            border-radius: 50%; /* 도형을 원형으로 만들기 위한 border-radius 설정 */
+        }
+
+        /* 도형 색상 및 스타일 설정 */
+        .black { background-color: #000000; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 배경 이미지 -->
+    <img src="image.png" alt="Background Image" class="background-image">
+    <!-- 도형 컨테이너 -->
+    <div class="shapes-container">
+        <div class="shape black">퐁</div>
+        <div class="shape black">력</div>
+        <div class="shape black">쓰</div>
+        <div class="shape black">까</div>
+        <div class="shape black">?</div>
+    </div>
+</div>
+</body>
+</html>
