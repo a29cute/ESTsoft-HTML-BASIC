@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8" />
+    <title>내부 스타일</title>
+    <link rel="stylesheet" href="basic_style.css">
+    <style>
+        .background {
+            width: 1000px;
+            height: 600px;
+
+            background-image: url(https://i.ytimg.com/vi/h12xLm8Y9hA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDiY-QAaMarN9N05KQc_3-m6KVk5g);
+            /*background-size: contain; !* 원본 비율을 유지하면서 여백있게 조절 *!*/
+            background-size: cover; /* 원본 비율을 유지하면서 여백없게 조절 */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-position: top;
+            background-position: left;
+        }
+
+        .gradient{
+            width: 1000px;
+            height: 600px;
+
+            background: rgb(238, 174, 202);
+            background: linear-gradient(90deg,
+            rgba(238, 174, 202, 1) 0%,
+            rgba(117, 122, 231, 1) 49%,
+            rgba(148, 187, 233, 1) 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="gradient"></div>
+</body>
+</html>
