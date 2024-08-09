@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #fae69d;
+            margin-bottom: 20px;
+        }
+
+        .box1, .box3{
+            padding: 20px;
+            border: 10px solid #ff7f50;
+        }
+
+        .box1{
+            box-sizing: border-box;
+        }
+        .box2 {
+            box-sizing: content-box;
+        }
+
+        .radius{
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2 radius">box2</div>
+    <div class="box3">box3</div>
+</body>
+</html>
