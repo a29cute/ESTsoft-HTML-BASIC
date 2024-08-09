@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            color: black;
+        }
+
+        .container{
+            width: 700px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+
+            background-color: #c1c1c1;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .main{
+            flex: 1;
+            display: flex;
+            gap: 10px;
+        }
+        header,
+        section,
+        aside,
+        footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header{
+            background-color: #99c4f6;
+        }
+
+        section{
+            background-color: #264b6a;
+            flex-grow: 2;
+        }
+
+        aside{
+            background-color: #b6ff65;
+            flex-grow: 1;
+            color : black;
+        }
+
+        footer{
+            background-color: #ff8585;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>header</header>
+    <div class="main">
+        <section>section > article</section>
+        <aside>aside</aside>
+    </div>
+    <footer>footer</footer>
+</div>
+</body>
+</html>
