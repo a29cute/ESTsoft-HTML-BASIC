@@ -6,96 +6,203 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./reset.css" />
   <title>로그인</title>
-  <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
   <style>
     body {
       font-family: "Spoqa Han Sans Neo", "sans-serif";
     }
 
-    .login-wrap {
-      width: 350px;
-      height: 140px;
+
+    .menu_wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 61px;
+      width: 460px;
       border-radius: 5px;
       border: 1px solid #dbdbdb;
-      padding: 19px 16px 18px;
       font-size: 12px;
       box-sizing: border-box;
+      border-bottom: none;
     }
 
-    .btn-login {
-      margin: 16px 0;
-      background-color: #711bff;
-      border-radius: 4px;
-      height: 40px;
-      display: block;
+    .menu_item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      text-align: center;
+      height: 30px;
+    }
+
+    .menu_item.active {
+      background-color: white;
+      border-radius: 5px;
+      border: solid 1px #dbdbdb;
+      border-bottom: none;
+      margin-bottom: 10px;
+    }
+
+    .login_wrap {
+      width: 460px;
+      height: 324px;
+      border-radius: 5px;
+      border: 1px solid #dbdbdb;
+      font-size: 12px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login_info {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .login_info.active {
+      display: flex;
+    }
+
+    .NIDLogin{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .NIDLogin{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .btn_login {
+      display: flex; /* 기본적으로 숨김 */
+      margin: 16px 0 0 0;
+      background-color: #34a152;
+      border-radius: 8px;
+      height: 50px;
       color: #fff;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      width: 100%;
+      border: none;
+    }
+
+    .NIDLogin.active .btn_login {
+      display: flex; /* 활성화된 .NIDLogin에서 로그인 버튼을 표시 */
+    }
+
+    .login_info input {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      border: 1px solid #c5ccd2;
+      border-radius: 4px;
+      height: 60px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      width: 100%;
+      z-index: 1;
+
+    }
+
+    .id, .pw{
+
+      border: 1px solid #c5ccd2;
+      border-radius: 4px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .btn-login img {
-      width: 64px;
-      margin-right: 4px;
-    }
-
-    .login-link {
-      color: #767676;
+    .find_wrap {
+      width: 350px;
+      border-radius: 5px;
+      padding: 19px 16px 18px;
+      font-size: 12px;
+      box-sizing: border-box;
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
     }
 
-    .login-link > div {
+    .find_wrap > div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .find_wrap > div > a {
       display: flex;
       align-items: center;
     }
 
-    .login-link > div > a {
-      display: flex;
-      align-items: center;
-    }
-
-    .login-link img {
-      width: 16px;
-      height: 16px;
-      margin-right: 4px;
-      /* vertical-align: middle; */
-    }
-
-    .login-link span {
+    .find_wrap span {
       margin: 0 4px;
     }
 
-    .join {
+    a {
+      text-decoration: none;
+      color: #888;
+    }
+
+    .login_info_wrap{
+      width: 410px;
+      height: 119px;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
+
+
+
   </style>
 </head>
 
 <body>
-<section class="login-wrap">
-  <!-- ir 기법을 사용해서 헤딩태그 숨기기 -->
-  <!-- <h2>로그인</h2> -->
-  <p>더 편리해진 위니브에 오신 것을 환영합니다.</p>
-  <a href="#" class="btn-login">
-    <img src="weniv-logo.png" alt="weniv" />
-    로그인
-  </a>
-  <div class="login-link">
-    <div>
-      <a href="#">
-        <img src="icon-lock.png" alt="아이디 찾기" />
-        아이디
-      </a>
-      <span>|</span>
-      <a href="#">비밀번호찾기</a>
+
+<section class="login_wrap">
+  <ul class="menu_wrap">
+    <li class="menu_item active" data-target="login_id">ID/전화번호</li>
+    <li class="menu_item" data-target="login_ones">일회용 번호</li>
+    <li class="menu_item" data-target="login_qr">QR코드</li>
+  </ul>
+<div class="NIDLogin">
+  <div class="login_info_wrap">
+    <div class="login_info login_id active">
+      <input type="text" class="id" placeholder="아이디 또는 전화번호">
+      <input type="password" class="pw" placeholder="비밀번호">
     </div>
-    <a href="#" class="join">
-      <img src="icon-user.png" alt="" />
-      회원가입
-    </a>
+  </div>
+  <button type="submit" class = btn_login>로그인</button>
+</div>
+  <div class="login_info login_ones">
+    <!-- 일회용 번호 관련 입력 필드 (빈 상태) -->
+    <p>일회용 번호 관련 내용은 이곳에 추가됩니다.</p>
+  </div>
+  <div class="login_info login_qr">
+    <!-- QR 코드 관련 입력 필드 (빈 상태) -->
+    <p>QR 코드 관련 내용은 이곳에 추가됩니다.</p>
   </div>
 </section>
+  <div class="find_wrap find_wrap_text">
+    <div>
+      <a href="#" class="find_id" target="_blank">아이디 찾기</a>
+      <span>|</span>
+      <a href="#" class="find_pw" target="_blank">비밀번호찾기</a>
+      <span>|</span>
+      <a href="#" class="sign" target="_blank">회원가입</a>
+    </div>
+  </div>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
