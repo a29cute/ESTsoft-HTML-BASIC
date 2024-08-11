@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             // 모든 메뉴 항목과 로그인 정보를 비활성화
-            menuItems.forEach(menu => menu.classList.remove('active'));
+            menuItems.forEach(menu => {
+                menu.classList.remove('active');
+                menu.querySelector('a').setAttribute('aria-selected', 'false'); // aria-selected를 false로 설정
+            });
             loginInfos.forEach(info => {
                 info.classList.remove('active');
                 info.classList.remove('show-button');
@@ -14,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // 클릭된 메뉴 항목과 관련된 로그인 정보 활성화
             this.classList.add('active');
+            this.querySelector('a').setAttribute('aria-selected', 'true'); // aria-selected를 true로 설정
             const target = this.getAttribute('data-target');
             const targetInfo = document.querySelector(`.${target}`);
             targetInfo.classList.add('active');

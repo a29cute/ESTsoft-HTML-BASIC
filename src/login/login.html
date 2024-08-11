@@ -12,46 +12,129 @@
     }
 
 
+
     .menu_wrap {
-      display: flex;
+      display: table;
+      table-layout: fixed;
       align-items: center;
+      border-collapse: collapse;
       justify-content: space-around;
       height: 61px;
       width: 460px;
-      border-radius: 5px;
-      border: 1px solid #dbdbdb;
+      border-radius: 8px;
       font-size: 12px;
       box-sizing: border-box;
       border-bottom: none;
+
     }
 
     .menu_item {
       flex: 1;
-      display: flex;
+      display: table-cell;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      padding: 10px;
+      padding-top: 20px;
       text-align: center;
       height: 30px;
+      position: relative;
+      border: none;
     }
 
-    .menu_item.active {
+    .menu_item_id.active {
+      position: relative;
       background-color: white;
-      border-radius: 5px;
+      border-radius: 8px;
       border: solid 1px #dbdbdb;
-      border-bottom: none;
-      margin-bottom: 10px;
+      border-bottom: 20px;
+
+    }
+
+
+    .menu_item_id.active::after{
+      content: '';
+      position: absolute; /* 절대 위치 지정 */
+      right: -2px; /* 탭의 오른쪽에 위치시키기 위해 */
+      top: -1px;
+      background-position: -225px -104px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+
+    }
+
+    .menu_item_ones.active {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      border: solid 1px #dbdbdb;
+      border-bottom: 20px;
+    }
+
+    .menu_item_ones.active::before{
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background-position: 0 -202px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+
+    }
+
+    .menu_item_ones.active::after{
+      content: '';
+      position: absolute; /* 절대 위치 지정 */
+      right: -2px; /* 탭의 오른쪽에 위치시키기 위해 */
+      top: -1px;
+      background-position: -225px -104px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+
+    }
+
+    .menu_item_qr.active {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      border: solid 1px #dbdbdb;
+      border-bottom: 20px;
+
+    }
+
+    .menu_item_qr.active::before{
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background-position: 0 -202px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+
+    }
+    .all_wrap{
+      width: 460px;
+      height: 324px;
     }
 
     .login_wrap {
-      width: 460px;
-      height: 324px;
+      width: 100%;
+      height: 100%;
       border-radius: 5px;
-      border: 1px solid #dbdbdb;
       font-size: 12px;
       box-sizing: border-box;
-      display: flex;
+      display: table;
       flex-direction: column;
       align-items: center;
     }
@@ -71,6 +154,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      margin-top: 30px;
     }
 
     .NIDLogin{
@@ -108,7 +192,7 @@
       padding: 0 10px;
       box-sizing: border-box;
       width: 100%;
-      z-index: 1;
+      z-index: 2;
 
     }
 
@@ -122,7 +206,7 @@
     }
 
     .find_wrap {
-      width: 350px;
+      width: 100%;
       border-radius: 5px;
       padding: 19px 16px 18px;
       font-size: 12px;
@@ -152,6 +236,11 @@
       color: #888;
     }
 
+    .login_info_wrap_btn{
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+    }
     .login_info_wrap{
       width: 410px;
       height: 119px;
@@ -160,37 +249,71 @@
       justify-content: center;
     }
 
+    .login_in_wrap {
+      background-color: white;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #e1e3e5;
+      border-radius: 8px;
+      display: table;
+      margin-top: -8px;
 
+    }
+
+    section {
+      background-color: #f5f6f7;
+      border: none;
+    }
+
+    .menu_item a{
+      text-decoration: none;
+      color: #888;
+    }
+    .menu_item a[aria-selected="true"] {
+      color: black; /* 선택된 항목의 글씨 색깔 */
+    }
 
   </style>
 </head>
 
 <body>
 
-<section class="login_wrap">
-  <ul class="menu_wrap">
-    <li class="menu_item active" data-target="login_id">ID/전화번호</li>
-    <li class="menu_item" data-target="login_ones">일회용 번호</li>
-    <li class="menu_item" data-target="login_qr">QR코드</li>
-  </ul>
-<div class="NIDLogin">
-  <div class="login_info_wrap">
-    <div class="login_info login_id active">
-      <input type="text" class="id" placeholder="아이디 또는 전화번호">
-      <input type="password" class="pw" placeholder="비밀번호">
-    </div>
-  </div>
-  <button type="submit" class = btn_login>로그인</button>
-</div>
-  <div class="login_info login_ones">
-    <!-- 일회용 번호 관련 입력 필드 (빈 상태) -->
-    <p>일회용 번호 관련 내용은 이곳에 추가됩니다.</p>
-  </div>
-  <div class="login_info login_qr">
-    <!-- QR 코드 관련 입력 필드 (빈 상태) -->
-    <p>QR 코드 관련 내용은 이곳에 추가됩니다.</p>
-  </div>
-</section>
+<section class="all_wrap">
+  <section class="login_wrap">
+    <ul class="menu_wrap">
+      <li class="menu_item menu_item_id active" data-target="login_id">
+        <a href="#none" class="menu_item_id" role="tab" aria-selected="true">ID/전화번호</a>
+      </li>
+      <li class="menu_item menu_item_ones" data-target="login_ones">
+        <a href="#none" class="menu_item_ones" role="tab" aria-selected="false">일회용 번호</a>
+      </li>
+      <li class="menu_item menu_item_qr" data-target="login_qr">
+        <a href="#none" class="menu_item_qr" role="tab" aria-selected="false">QR코드</a>
+      </li>
+    </ul>
+
+    <section class="login_in_wrap">
+      <div class="NIDLogin">
+        <section class="login_info_wrap_btn">
+          <div class="login_info_wrap">
+            <div class="login_info login_id active">
+              <input type="text" class="id" placeholder="아이디 또는 전화번호">
+              <input type="password" class="pw" placeholder="비밀번호">
+            </div>
+          </div>
+          <button type="submit" class = btn_login>로그인</button>
+        </section>
+      </div>
+      <div class="login_info login_ones">
+        <!-- 일회용 번호 관련 입력 필드 (빈 상태) -->
+        <p>일회용 번호 관련 내용은 이곳에 추가됩니다.</p>
+      </div>
+      <div class="login_info login_qr">
+        <!-- QR 코드 관련 입력 필드 (빈 상태) -->
+        <p>QR 코드 관련 내용은 이곳에 추가됩니다.</p>
+      </div>
+    </section>
+  </section>
   <div class="find_wrap find_wrap_text">
     <div>
       <a href="#" class="find_id" target="_blank">아이디 찾기</a>
@@ -200,7 +323,7 @@
       <a href="#" class="sign" target="_blank">회원가입</a>
     </div>
   </div>
-
+</section>
 
 <script src="script.js"></script>
 
