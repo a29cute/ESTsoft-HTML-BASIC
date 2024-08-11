@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./reset.css" />
+  <title>로그인</title>
+  <style>
+    body {
+      font-family: "Spoqa Han Sans Neo", "sans-serif";
+    }
+
+    .menu_wrap {
+      display: table;
+      table-layout: fixed;
+      align-items: center;
+      border-collapse: collapse;
+      justify-content: space-around;
+      height: 61px;
+      width: 460px;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+      border-bottom: none;
+    }
+
+    .menu_item {
+      flex: 1;
+      display: table-cell;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding-top: 20px;
+      text-align: center;
+      height: 30px;
+      position: relative;
+      border: none;
+    }
+
+    .menu_item_id.active {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      border: solid 1px #dbdbdb;
+      border-bottom: 20px;
+    }
+
+    .menu_item_id.active::after{
+      content: '';
+      position: absolute; /* 절대 위치 지정 */
+      right: -2px; /* 탭의 오른쪽에 위치시키기 위해 */
+      top: -1px;
+      background-position: -225px -104px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+    }
+
+    .menu_item_ones.active {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      border: solid 1px #dbdbdb;
+      border-bottom: 20px;
+    }
+
+    .menu_item_ones.active::before{
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background-position: 0 -202px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+    }
+
+    .menu_item_ones.active::after{
+      content: '';
+      position: absolute; /* 절대 위치 지정 */
+      right: -2px; /* 탭의 오른쪽에 위치시키기 위해 */
+      top: -1px;
+      background-position: -225px -104px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+    }
+
+    .menu_item_qr.active {
+      position: relative;
+      background-color: white;
+      border-radius: 8px;
+      border: solid 1px #dbdbdb;
+      border-bottom: 20px;
+    }
+
+    .menu_item_qr.active::before{
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background-position: 0 -202px;
+      background-repeat: no-repeat;
+      width: 25px;
+      height: 62px;
+      background-size: 336px 330px;
+      background-image: url("https://ssl.pstatic.net/static/nid/login/m_sp_01_login_775fb7c0.png");
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .all_wrap {
+      width: 460px;
+      height: 324px;
+    }
+
+    .login_wrap {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: table;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login_info {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .login_info.active {
+      display: flex;
+    }
+
+    .NIDLogin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+
+    .btn_login {
+      display: flex; /* 기본적으로 숨김 */
+      margin: 16px 0 0 0;
+      background-color: #34a152;
+      border-radius: 8px;
+      height: 50px;
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      width: 100%;
+      border: none;
+    }
+
+    .NIDLogin.active .btn_login {
+      display: flex; /* 활성화된 .NIDLogin에서 로그인 버튼을 표시 */
+    }
+
+    .id{
+      border-radius: 8px 8px 0 0;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      border: 1px solid #c5ccd2;
+      height: 60px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      width: 100%;
+      z-index: 2;
+      position: relative;
+    }
+
+    .pw.ntop{
+      border-top: 0;
+    }
+
+    .pw{
+      border-radius: 0 0 8px 8px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      border: 1px solid #c5ccd2;
+      height: 60px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      width: 100%;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* 입력 필드 포커스 상태 */
+    .id:focus {
+      border: 2px solid #34a152;/* 초록색 테두리 */
+      outline: none; /* 기본 아웃라인 제거 */
+    }
+
+    .pw:focus {
+      border: 2px solid #34a152;/* 초록색 테두리 */
+      outline: none; /* 기본 아웃라인 제거 */
+    }
+
+    /* placeholder 스타일 */
+    .id::placeholder {
+      color: #888;
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      font-size: 16px; /* 기본 크기 */
+      font-weight: normal;
+    }
+
+    .pw::placeholder {
+      color: #888;
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      font-size: 16px; /* 기본 크기 */
+      font-weight: normal;
+    }
+
+    /* placeholder가 이동하는 애니메이션 */
+    .id:focus::placeholder,
+    .id:not(:placeholder-shown)::placeholder {
+      top: 15px; /* 위로 이동 */
+      left: 10px;
+      font-size: 12px; /* 작게 변경 */
+      color: #34a152; /* 초록색으로 변경 */
+    }
+
+    .pw:focus::placeholder,
+    .pw:not(:placeholder-shown)::placeholder {
+      top: 15px; /* 위로 이동 */
+      left: 10px;
+      font-size: 12px; /* 작게 변경 */
+      color: #34a152; /* 초록색으로 변경 */
+    }
+
+
+    .find_wrap {
+      width: 100%;
+      border-radius: 5px;
+      padding: 19px 16px 18px;
+      font-size: 13px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .find_wrap > div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .find_wrap > div > a {
+      display: flex;
+      align-items: center;
+    }
+
+    .find_wrap span {
+      margin: 0 4px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #888;
+    }
+
+    .login_info_wrap_btn {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+    }
+
+    .login_info_wrap {
+      width: 410px;
+      height: 119px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login_in_wrap {
+      background-color: white;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #e1e3e5;
+      border-radius: 8px;
+      display: table;
+      margin-top: -8px;
+      box-sizing: border-box;
+    }
+
+    section {
+      background-color: #f5f6f7;
+      border-radius: 8px;
+    }
+
+    .menu_item a {
+      text-decoration: none;
+      color: #888;
+    }
+
+    .menu_item a[aria-selected="true"] {
+      color: black; /* 선택된 항목의 글씨 색깔 */
+    }
+  </style>
+</head>
+<body>
+<section class="all_wrap">
+  <section class="login_wrap">
+    <ul class="menu_wrap">
+      <li class="menu_item menu_item_id active" data-target="login_id">
+        <a href="#none" class="menu_item_id" role="tab" aria-selected="true">ID/전화번호</a>
+      </li>
+      <li class="menu_item menu_item_ones" data-target="login_ones">
+        <a href="#none" class="menu_item_ones" role="tab" aria-selected="false">일회용 번호</a>
+      </li>
+      <li class="menu_item menu_item_qr" data-target="login_qr">
+        <a href="#none" class="menu_item_qr" role="tab" aria-selected="false">QR코드</a>
+      </li>
+    </ul>
+
+    <section class="login_in_wrap">
+      <div class="NIDLogin">
+        <section class="login_info_wrap_btn">
+          <div class="login_info_wrap">
+            <div class="login_info login_id active">
+              <div class="input_wrap">
+                <input type="text" class="id" placeholder="아이디 또는 전화번호">
+              </div>
+              <div class="input_wrap">
+                <input type="password" class="pw ntop" placeholder="비밀번호">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn_login">로그인</button>
+        </section>
+      </div>
+      <div class="login_info login_ones">
+        <!-- 일회용 번호 관련 입력 필드 (빈 상태) -->
+        <p>일회용 번호 관련 내용은 이곳에 추가됩니다.</p>
+      </div>
+      <div class="login_info login_qr">
+        <!-- QR 코드 관련 입력 필드 (빈 상태) -->
+        <p>QR 코드 관련 내용은 이곳에 추가됩니다.</p>
+      </div>
+    </section>
+  </section>
+
+  <div class="find_wrap find_wrap_text">
+    <div>
+      <a href="#" class="find_id" target="_blank">아이디 찾기</a>
+      <span>|</span>
+      <a href="#" class="find_pw" target="_blank">비밀번호 찾기</a>
+      <span>|</span>
+      <a href="#" class="sign" target="_blank">회원가입</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.menu_item');
+    const loginInfos = document.querySelectorAll('.login_info');
+    const btnLogin = document.querySelector('.btn_login');
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // 모든 메뉴 항목과 로그인 정보를 비활성화
+        menuItems.forEach(menu => {
+          menu.classList.remove('active');
+          menu.querySelector('a').setAttribute('aria-selected', 'false'); // aria-selected를 false로 설정
+        });
+        loginInfos.forEach(info => {
+          info.classList.remove('active');
+        });
+
+        // 클릭된 메뉴 항목과 관련된 로그인 정보 활성화
+        this.classList.add('active');
+        this.querySelector('a').setAttribute('aria-selected', 'true'); // aria-selected를 true로 설정
+        const target = this.getAttribute('data-target');
+        const targetInfo = document.querySelector(`.${target}`);
+        targetInfo.classList.add('active');
+
+        // 로그인 버튼을 포함할지 여부 결정
+        if (target === 'login_id') {
+          btnLogin.style.display = 'flex'; // 로그인 버튼을 표시
+        } else {
+          btnLogin.style.display = 'none'; // 로그인 버튼을 숨김
+        }
+      });
+    });
+
+    // 로그인 버튼 클릭 시 로그인 기능 처리
+    btnLogin.addEventListener('click', function() {
+      // 입력 필드에서 아이디와 비밀번호를 가져옵니다
+      const id = document.querySelector('.login_id .id').value;
+      const password = document.querySelector('.login_id .pw').value;
+
+      // 아이디와 비밀번호가 고정된 값 '1234'인지 확인
+      if (id === '1234' && password === '1234') {
+        alert('로그인 성공');
+        // 로그인 성공 후 페이지 리다이렉션 (예: 대시보드 페이지로 이동)
+        // window.location.href = '/dashboard'; // 로그인 후 이동할 페이지 URL
+      } else {
+        alert('로그인 실패: 아이디 또는 비밀번호가 틀립니다.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
